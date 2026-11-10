@@ -1,4 +1,4 @@
-# Article / lab
+# Whuddup_Doc
 
 A browser-local, deterministic article learning workspace. No LLM, API keys, server, or agent SDK required.
 
@@ -23,7 +23,7 @@ The dashboard links concepts to article passages. The game masks a keyword in a 
 
 ## Network, permissions, and recovery
 
-Article processing stays in browser memory and resets on reload. Uploaded HTML is parsed in an inert document, scripts/styles/embedded content are removed, and only text and image counts enter state. Uploaded image URLs are never displayed. Article content cannot select tools or change routing. React renders article content as text.
+Article processing runs in browser memory. Unsaved work resets on reload. After analysis, use **Saved documents → Save document** to keep source text, results, logs, diagnostics, and current recall answers in this browser’s local storage. Open a saved document to restore the workspace; choose **Update saved document** to keep later recall progress. Remove deletes the saved copy. Saved documents do not sync across devices and are lost if browser data is cleared. Storage failures are shown in the interface; JSON report export remains available from the workspace. Uploaded HTML is parsed in an inert document, scripts/styles/embedded content are removed, and only text and image counts enter state. Uploaded image URLs are never displayed. Article content cannot select tools or change routing. React renders article content as text.
 
 The only application fetch is a Wikimedia Commons search using the top three keywords, after the synopsis. This lookup does not send article text. It accepts raster images with an allowed free license, HTTPS URLs on the expected Wikimedia hosts, and at least one matching keyword in title/description. Attribution and the source page are shown. Keyword relevance is heuristic; precise visual/semantic relevance cannot be guaranteed by these functions. No licensed match or a failed lookup produces a diagnostic and the workflow continues without an image. See the [official image metadata API](https://www.mediawiki.org/wiki/API:Imageinfo) for the lookup fields.
 
