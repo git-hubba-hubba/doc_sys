@@ -1,0 +1,168 @@
+#root { width: 100%; }
+
+/* Original application hierarchy and three-column proportions. */
+.sysMaster {
+  border: .2px solid black;
+  margin: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  min-height: calc(100vh - 2em);
+}
+.processLogger { border: solid peru; width: 20%; }
+.contentHub { border: solid navy; width: 60%; min-width: 0; }
+.errorLogger { border: solid rgb(77, 18, 18); width: 20%; }
+.processLogger, .errorLogger { min-width: 0; position: sticky; top: 1em; }
+
+.starterComponent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 12px;
+  padding: 1em;
+}
+.starterComponent h1 { font-size: 1.5rem; overflow-wrap: anywhere; flex: 1; }
+.articleUploader {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: solid black;
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  background: white;
+}
+.articleUploader input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.articleUploader.disabled { opacity: .5; cursor: default; }
+.counterHolster {
+  border: .2px solid green;
+  width: 33%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 8px;
+  gap: 8px;
+}
+.counterHolster strong { display: block; font-size: 1.15rem; }
+.counterHolster span { font-size: .7rem; }
+.sourceControls { padding: 0 1em 1em; font-size: .8rem; }
+.sourceControls > p { margin-bottom: 8px; }
+.status { color: #304d60; }
+.upload-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.secondary, .options button { padding: 6px 10px; border: 1px solid #778c9b; border-radius: 4px; background: #f4f6f8; color: #182128; }
+.text-button { background: transparent; border: 0; padding: 5px; color: navy; }
+.paste-area { margin-top: 12px; }
+.paste-area label { display: block; margin: 8px 0; }
+.paste-area button { margin-top: 6px; }
+.progress-track { margin-top: 12px; height: 4px; background: #dbe2e8; }
+.progress-track > div { height: 100%; background: steelblue; transition: width .2s; }
+.active-tool { margin-top: 6px; }
+
+.contextComponent { display: flex; justify-content: space-evenly; align-items: stretch; }
+.contextLeft { border: solid peru; margin: 5px; padding: 12px; width: 40%; min-width: 0; }
+.contextRight { width: 60%; min-width: 0; }
+.contextblock { border: solid navy; border-radius: 12px; margin: 1em; padding: 12px; }
+.summaryblock { border: solid powderblue; border-radius: 12px; margin: 1em; padding: 12px; }
+.section-label { font-size: .65rem; color: #4b6273; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.muted, .method-note { font-size: .75rem; color: #536270; margin-top: 8px; }
+.placeholder { font-size: .8rem; color: #536270; padding: 18px 0; }
+.keywords { margin-top: 12px; }
+.keyword { display: flex; gap: 8px; padding: 9px 0; border-bottom: 1px solid #dbe2e8; font-size: .8rem; }
+.keyword b { overflow-wrap: anywhere; min-width: 0; }
+.keyword-number { color: #64788a; font-size: .7rem; }
+.keyword-count { margin-left: auto; font-size: .7rem; }
+.evidence { margin-top: 12px; display: flex; flex-direction: column; gap: 12px; }
+.evidence p { font-size: .8rem; line-height: 1.7; overflow-wrap: anywhere; }
+.source-id { font-size: .65rem; color: navy; background: #e8eef6; padding: 1px 4px; margin-right: 6px; border-radius: 3px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tabs button { padding: 6px 8px; border: 1px solid #b3c2cd; background: white; border-radius: 4px; font-size: .7rem; }
+.tabs button[aria-pressed=true] { border-color: navy; background: #e8eef6; }
+.carousel-controls { display: flex; justify-content: space-between; align-items: center; font-size: .75rem; margin-top: 10px; }
+hr { margin: 1em; border: 0; border-top: 1px solid #a5b2be; }
+
+.majorRetain { border: solid peru; margin: 2em; padding: 12px; }
+.splitter { display: flex; justify-content: space-between; align-items: flex-start; }
+.imageTrained { width: 30%; min-width: 0; }
+.dashboardCanopy { border: solid navy; width: 70%; margin: 1em; padding: 10px; min-width: 0; }
+.imgRes { border: solid goldenrod; width: 90px; height: 90px; object-fit: cover; margin: 1em; max-width: calc(100% - 2em); }
+.imageTrained figcaption { font-size: .65rem; padding: 8px; overflow-wrap: anywhere; }
+.imageTrained figcaption p { margin-top: 6px; }
+.image-placeholder { margin: 1em; padding: 8px; border: solid goldenrod; font-size: .7rem; overflow-wrap: anywhere; }
+.image-placeholder > span { display: block; font-size: 1.5rem; }
+.image-placeholder p { margin-top: 8px; }
+.concept { padding: 10px 0; border-bottom: 1px solid #dbe2e8; }
+.concept summary { font-size: .8rem; overflow-wrap: anywhere; }
+.concept summary span { margin-left: 8px; font-size: .65rem; color: #536270; }
+
+.game, .checks, .source-preview, .contracts { border: 1px solid #a5b2be; margin: 1em; padding: 12px; }
+.game-score { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: .8rem; }
+.question { border-top: 1px solid #dbe2e8; margin-top: 12px; padding-top: 12px; }
+.question > p { margin: 8px 0; font-size: .85rem; }
+.options { display: flex; flex-wrap: wrap; gap: 8px; }
+.options button { font-size: .75rem; }
+.options button:disabled { opacity: 1; }
+.options button.correct { background: #e4f2e0; border-color: green; }
+.options button.incorrect { background: #fbe4e1; border-color: brown; }
+.feedback { font-size: .8rem; margin-top: 10px; }
+.checks p { margin-top: 8px; font-size: .8rem; }
+.passed { color: #286a2c; }
+.failed { color: #a33924; }
+.source-preview summary { font-size: .8rem; }
+.contracts-toggle { margin: 0 1em; }
+.contracts p, .contracts details { font-size: .75rem; margin-top: 10px; }
+.contracts dl > div { margin-top: 10px; }
+.contracts dt { font-weight: 600; }
+.contracts dd { margin: 4px 0 0; overflow-wrap: anywhere; }
+.workspace-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin: 1em; font-size: .7rem; }
+
+.panel-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #a5b2be; padding: 12px; }
+.panel-heading h2 { font-size: .9rem; }
+.micro { font-size: .6rem; }
+.live-dot { display: inline-block; width: 6px; height: 6px; background: green; border-radius: 50%; margin-right: 6px; }
+.log-scroll { max-height: 65vh; overflow: auto; scrollbar-width: thin; }
+.log-empty, .healthy { padding: 16px 12px; font-size: .75rem; }
+.log-empty p, .healthy p { margin-top: 8px; }
+.log-entry { border-bottom: 1px solid #dbe2e8; padding: 12px; font-size: .65rem; overflow-wrap: anywhere; }
+.log-entry > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+.log-entry p { margin-top: 8px; }
+.log-entry.done b { color: #286a2c; }
+.log-entry.warning b { color: #94611b; }
+.trace-footer, .error-subtitle { font-size: .65rem; padding: 12px; }
+.error-count { padding: 0 5px; border: 1px solid #94a58d; border-radius: 4px; font-size: .7rem; }
+.error-count.has-errors { border-color: brown; color: brown; }
+.errorLogger > div[role=log] { max-height: 55vh; overflow: auto; }
+.error-entry { border-bottom: 1px solid #dbe2e8; padding: 12px; font-size: .7rem; overflow-wrap: anywhere; }
+.error-entry > span, .error-entry b, .error-entry small { display: block; margin-bottom: 6px; }
+.error-entry b { color: #a33924; }
+.boundaries { padding: 12px; border-top: 1px solid #a5b2be; font-size: .65rem; }
+.boundaries p { margin-top: 8px; }
+
+/* Keep both live logs accessible when the original columns need to stack. */
+@media (max-width: 1100px) {
+  .starterComponent { flex-wrap: wrap; }
+  .counterHolster { width: 100%; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .majorRetain { margin: 1em; }
+  .contextblock, .summaryblock { margin: .5em; }
+}
+@media (max-width: 900px) {
+  :root { background: slategray; }
+  .sysMaster { flex-direction: column; gap: 12px; padding: 8px; }
+  .processLogger, .contentHub, .errorLogger { width: 100%; position: static; }
+  .processLogger, .errorLogger { background: white; }
+  .contentHub { background: white; }
+  .log-scroll { max-height: 180px; }
+}
+@media (max-width: 550px) {
+  .sysMaster { margin: .5em; }
+  .contextComponent { flex-direction: column; }
+  .contextLeft { width: calc(100% - 10px); }
+  .contextRight { width: 100%; }
+  .splitter { flex-direction: column; }
+  .imageTrained { width: 100%; }
+  .dashboardCanopy { width: calc(100% - 2em); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,29 @@
+:root {
+  font-family: system-ui, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #182128;
+  background: slategray;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, textarea { font: inherit; }
+button, summary { cursor: pointer; }
+button:disabled { cursor: default; opacity: .5; }
+button:focus-visible, a:focus-visible, summary:focus-visible,
+textarea:focus-visible, .articleUploader:focus-within {
+  outline: 3px solid steelblue;
+  outline-offset: 3px;
+}
+h1, h2, p, figure { margin: 0; }
+h2 { font-size: 1.1rem; }
+a { color: navy; }
+textarea { width: 100%; min-height: 120px; resize: vertical; padding: 8px; }
+
+@media (max-width: 1500px) {
+  :root { background: white; }
+}

@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: doc-sys-admin
+    runtime: static
+    rootDir: frontend/doc-sys-admin
+    buildCommand: pnpm install --frozen-lockfile && pnpm run build
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_VERSION
+        value: 24.20.0
